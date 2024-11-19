@@ -81,3 +81,27 @@ html, body {
 .embla__slide img {
     cursor: zoom-in;
 }
+
+.animated-gradient {
+    background: linear-gradient(270deg, #2F00FF, #FF0004, #2F00FF);
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 5s linear infinite;
+}
+
+.animated-gradient-background {
+    background: linear-gradient(270deg, #2F00FF, #FF0004, #2F00FF);
+    background-size: 200% 100%;
+    animation: gradient 5s linear infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: -200% 50%;
+    }
+}

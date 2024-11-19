@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanilla JS with Tailwind</title>
+    <title>Alan Chavarin</title>
+    <link rel="icon" type="image/x-icon" href="./assets/a.png">
     <link href="./dist/output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -27,7 +28,7 @@
     
     <div class="flex flex-col gap-[24px] px-[32px]">
         <div class="flex flex-col">
-            <h1 class="text-[42px] sm:text-[64px] md:text-[128px] font-montserrat bg-gradient-to-r from-gradientRed to-gradientBlue bg-clip-text text-transparent font-medium">
+            <h1 class="text-[42px] sm:text-[64px] md:text-[128px] font-montserrat animated-gradient bg-clip-text text-transparent font-medium">
                 Alan Chavarin
             </h1>
             <h2 class="text-[24px] md:text-[32px] font-montserrat">
@@ -38,52 +39,62 @@
             </h3>
         </div>
         
-        <div class="grid grid-cols-5 grid-rows-2 gap-[8px] w-fit">
-            <div class="flex flex-col items-center justify-center">
-                <img src="./assets/figma.png" alt="Figma" class="size-[48px] md:size-[64px] object-cover">
-                <div class="text-[10px] md:text-[16px]">Figma</div>
+        <div class="flex gap-[8px] w-full justify-between">
+            <div class="grid grid-cols-5 grid-rows-2 gap-[8px] w-fit">
+                <div class="flex flex-col items-center justify-center">
+                    <img src="./assets/figma.png" alt="Figma" class="size-[48px] md:size-[64px] object-cover">
+                    <div class="text-[10px] md:text-[16px]">Figma</div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="./assets/typescript.png" alt="Typescript" class="size-[48px] md:size-[64px] object-cover">
+                    <div class="text-[10px] md:text-[16px]">Typescript</div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="./assets/javascript.png" alt="Javascript" class="size-[48px] md:size-[64px] object-cover">
+                    <div class="text-[10px] md:text-[16px]">Javascript</div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="./assets/react.png" alt="React" class="size-[48px] md:size-[64px] object-fit">
+                    <div class="text-[10px] md:text-[16px]">React</div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="./assets/nextjs.svg" alt="NextJS" class="size-[48px] md:size-[64px] object-cover">
+                    <div class="text-[10px] md:text-[16px]">NextJS</div>
+                </div>
+                
+                <div class="flex flex-col items-center justify-center">
+                    <img src="./assets/postgresql.png" alt="Postgres" class="size-[48px] md:size-[64px] object-cover">
+                    <div class="text-[10px] md:text-[16px]">Postgres</div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="./assets/mongodb.png" alt="MongoDB" class="size-[48px] md:size-[64px] object-cover">
+                    <div class="text-[10px] md:text-[16px]">MongoDB</div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="./assets/docker.png" alt="Docker" class="size-[48px] md:size-[64px] object-cover">
+                    <div class="text-[10px] md:text-[16px]">Docker</div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="./assets/express.png" alt="Express" class="size-[48px] md:size-[64px] object-fit">
+                    <div class="text-[10px] md:text-[16px]">Express</div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="./assets/node.png" alt="NodeJS" class="size-[48px] md:size-[64px] object-cover">
+                    <div class="text-[10px] md:text-[16px]">NodeJS</div>
+                </div>
             </div>
-            <div class="flex flex-col items-center justify-center">
-                <img src="./assets/typescript.png" alt="Typescript" class="size-[48px] md:size-[64px] object-cover">
-                <div class="text-[10px] md:text-[16px]">Typescript</div>
+
+            <!-- <div class="text-[128px] md:text-[192px] font-bold font-montserrat bg-gradient-to-r from-gradientRed to-gradientBlue bg-clip-text text-transparent hidden sm:block">
+                &lt;/&gt;
+            </div> -->
+            <div class="text-[128px] md:text-[192px] font-bold font-montserrat animated-gradient bg-clip-text text-transparent hidden sm:block">
+                &lt;/&gt;
             </div>
-            <div class="flex flex-col items-center justify-center">
-                <img src="./assets/javascript.png" alt="Javascript" class="size-[48px] md:size-[64px] object-cover">
-                <div class="text-[10px] md:text-[16px]">Javascript</div>
-            </div>
-            <div class="flex flex-col items-center justify-center">
-                <img src="./assets/react.png" alt="React" class="size-[48px] md:size-[64px] object-fit">
-                <div class="text-[10px] md:text-[16px]">React</div>
-            </div>
-            <div class="flex flex-col items-center justify-center">
-                <img src="./assets/nextjs.svg" alt="NextJS" class="size-[48px] md:size-[64px] object-cover">
-                <div class="text-[10px] md:text-[16px]">NextJS</div>
-            </div>
-            
-            <div class="flex flex-col items-center justify-center">
-                <img src="./assets/postgresql.png" alt="Postgres" class="size-[48px] md:size-[64px] object-cover">
-                <div class="text-[10px] md:text-[16px]">Postgres</div>
-            </div>
-            <div class="flex flex-col items-center justify-center">
-                <img src="./assets/mongodb.png" alt="MongoDB" class="size-[48px] md:size-[64px] object-cover">
-                <div class="text-[10px] md:text-[16px]">MongoDB</div>
-            </div>
-            <div class="flex flex-col items-center justify-center">
-                <img src="./assets/docker.png" alt="Docker" class="size-[48px] md:size-[64px] object-cover">
-                <div class="text-[10px] md:text-[16px]">Docker</div>
-            </div>
-            <div class="flex flex-col items-center justify-center">
-                <img src="./assets/express.png" alt="Express" class="size-[48px] md:size-[64px] object-fit">
-                <div class="text-[10px] md:text-[16px]">Express</div>
-            </div>
-            <div class="flex flex-col items-center justify-center">
-                <img src="./assets/node.png" alt="NodeJS" class="size-[48px] md:size-[64px] object-cover">
-                <div class="text-[10px] md:text-[16px]">NodeJS</div>
-            </div>
+
         </div>
     </div>
 
-    <button onclick="document.querySelector('.savage-feats').scrollIntoView({behavior: 'smooth'})" class="bg-gradient-to-r from-gradientRed to-gradientBlue text-white px-[24px] rounded-full font-semibold w-fit mx-auto gap-[8px] flex flex-row items-center justify-center small-box-shadow my-[24px] md:text-[20px] py-[4px] md:py-[8px] mb-[120px] md:mb-[200px] hover:font-bold hover:text-[22px] transition-all duration-300" >
+    <button onclick="document.querySelector('.savage-feats').scrollIntoView({behavior: 'smooth'})" class="animated-gradient-background text-white px-[24px] rounded-full font-semibold w-fit mx-auto gap-[8px] flex flex-row items-center justify-center small-box-shadow my-[24px] md:text-[20px] py-[4px] md:py-[8px] mb-[120px] md:mb-[200px] hover:font-bold hover:text-[22px] transition-all duration-300" >
         <div>
             See my work
         </div>
@@ -339,7 +350,7 @@
             <label for="message" class="">Message</label>
             <textarea class="border-[1px] border-gray-300 rounded-[4px] focus:outline-2" name="text" id="" cols="30" rows="10" placeholder="Hello!"></textarea>
         </div>
-        <button type="submit" class="bg-gradient-to-r from-gradientRed to-gradientBlue text-white px-[64px] rounded-full font-semibold w-fit mx-auto gap-[8px] flex flex-row items-center justify-center small-box-shadow my-[24px] md:text-[20px] py-[4px] md:py-[8px] hover:font-bold hover:text-[22px] transition-all duration-300">
+        <button type="submit" class="animated-gradient-background text-white px-[64px] rounded-full font-semibold w-fit mx-auto gap-[8px] flex flex-row items-center justify-center small-box-shadow my-[24px] md:text-[20px] py-[4px] md:py-[8px] hover:font-bold hover:text-[22px] transition-all duration-300">
             Send
         </button>
     </form>

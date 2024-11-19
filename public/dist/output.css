@@ -651,6 +651,10 @@ video {
   display: grid;
 }
 
+.hidden {
+  display: none;
+}
+
 .size-\[12px\] {
   width: 12px;
   height: 12px;
@@ -761,6 +765,10 @@ video {
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .gap-\[12px\] {
@@ -894,6 +902,10 @@ video {
 
 .text-\[10px\] {
   font-size: 10px;
+}
+
+.text-\[128px\] {
+  font-size: 128px;
 }
 
 .text-\[12px\] {
@@ -1078,6 +1090,31 @@ html, body {
   cursor: zoom-in;
 }
 
+.animated-gradient {
+  background: linear-gradient(270deg, #2F00FF, #FF0004, #2F00FF);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 5s linear infinite;
+}
+
+.animated-gradient-background {
+  background: linear-gradient(270deg, #2F00FF, #FF0004, #2F00FF);
+  background-size: 200% 100%;
+  animation: gradient 5s linear infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: -200% 50%;
+  }
+}
+
 .hover\:bg-gradient-to-r:hover {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -1114,6 +1151,10 @@ html, body {
 }
 
 @media (min-width: 640px) {
+  .sm\:block {
+    display: block;
+  }
+
   .sm\:text-\[16px\] {
     font-size: 16px;
   }
@@ -1177,6 +1218,10 @@ html, body {
 
   .md\:text-\[16px\] {
     font-size: 16px;
+  }
+
+  .md\:text-\[192px\] {
+    font-size: 192px;
   }
 
   .md\:text-\[20px\] {
