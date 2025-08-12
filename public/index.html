@@ -10,17 +10,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
     <style>
-        
+        /* Force navbar button padding on mobile */
+        @media (max-width: 767px) {
+            nav ul li a {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+                min-width: 80px !important;
+                display: inline-block !important;
+                text-align: center !important;
+            }
+        }
     </style>
 </head>
 <body class="text-mainGray font-light flex flex-col gap-[24px] items-center relative">
 
 <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/70">
-    <ul class="flex flex-row justify-center items-center gap-[12px] h-[36px] text-[18px] md:text-[24px] md:gap-[32px] md:h-[64px]">
-        <li><a onclick="document.querySelector('#home').scrollIntoView({behavior: 'smooth'})" class="transition-all duration-300 hover:bg-gradient-to-r hover:from-gradientRed hover:to-gradientBlue hover:text-white md:px-[16px] rounded-full inline-block hover:font-semibold hover:small-box-shadow">Home</a></li>
-        <li><a href="https://www.linkedin.com/in/alanchavarin/" target="_blank" class="transition-all duration-300 hover:bg-gradient-to-r hover:from-gradientRed hover:to-gradientBlue hover:text-white md:px-[16px] rounded-full inline-block hover:font-semibold hover:small-box-shadow">LinkedIn</a></li>
-        <li><a href="./AlanChavarin_Resume_SoftwareEngineer_v5.docx" download class="transition-all duration-300 hover:bg-gradient-to-r hover:from-gradientRed hover:to-gradientBlue hover:text-white md:px-[16px] rounded-full inline-block hover:font-semibold hover:small-box-shadow">Resume</a></li>
-        <li><a onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})" class="transition-all duration-300 hover:bg-gradient-to-r hover:from-gradientRed hover:to-gradientBlue hover:text-white md:px-[16px] rounded-full inline-block hover:font-semibold hover:small-box-shadow">Contact</a></li>
+    <ul class="flex flex-row justify-center items-center gap-[6px] h-[48px] text-[18px] md:text-[24px] md:gap-[32px] md:h-[64px] px-[16px]">
+        <li><a onclick="document.querySelector('#home').scrollIntoView({behavior: 'smooth'})" class="transition-all duration-300 hover:bg-gradient-to-r hover:from-gradientRed hover:to-gradientBlue hover:text-white px-[12px] md:px-[16px] rounded-full inline-block hover:font-semibold hover:small-box-shadow">Home</a></li>
+        <li><a href="https://www.linkedin.com/in/alanchavarin/" target="_blank" class="transition-all duration-300 hover:bg-gradient-to-r hover:from-gradientRed hover:to-gradientBlue hover:text-white px-[12px] md:px-[16px] rounded-full inline-block hover:font-semibold hover:small-box-shadow">LinkedIn</a></li>
+        <li><a href="./AlanChavarin_Resume_SoftwareEngineer_v6.docx" download class="transition-all duration-300 hover:bg-gradient-to-r hover:from-gradientRed hover:to-gradientBlue hover:text-white px-[12px] md:px-[16px] rounded-full inline-block hover:font-semibold hover:small-box-shadow">Resume</a></li>
+        <li><a onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})" class="transition-all duration-300 hover:bg-gradient-to-r hover:from-gradientRed hover:to-gradientBlue hover:text-white px-[12px] md:px-[16px] rounded-full inline-block hover:font-semibold hover:small-box-shadow">Contact</a></li>
     </ul>
 </nav>
     
@@ -97,6 +106,10 @@
                     <img src="./assets/googleCloud.webp" alt="Google Cloud" class="size-[48px] md:size-[64px] object-contain">
                     <div class="text-[10px] md:text-[16px]">Google Cloud</div>
                 </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="./assets/jest.svg" alt="Jest" class="size-[48px] md:size-[64px] object-contain">
+                    <div class="text-[10px] md:text-[16px]">Jest</div>
+                </div>
             </div>
 
             <!-- <div class="text-[128px] md:text-[192px] font-bold font-montserrat bg-gradient-to-r from-gradientRed to-gradientBlue bg-clip-text text-transparent hidden sm:block">
@@ -119,6 +132,68 @@
     <div class="w-[80%] max-w-[300px] h-[2px] bg-gradient-to-r from-gradientRed to-gradientBlue"></div>
 
     <div class="flex flex-col gap-[64px] savage-feats mx-[32px]">
+
+        <div class="flex flex-col gap-[32px] md:flex-row md:items-start md:justify-center">
+
+            <div class="flex flex-col gap-[8px] md:flex-1">
+                <div class="flex flex-col">
+                    <div class="text-[36px] font-montserrat text-black">
+                        Walmart
+                    </div>
+                    <div class="text-[16px] italic">
+                        Software Engineering Intern
+                    </div>
+                    <div class="text-[16px] italic">
+                        July 2025 - August 2025
+                    </div>
+                </div>
+                                    <div class="flex flex-row gap-[8px] w-fit">
+                        <div class="flex flex-col items-center justify-center">
+                            <img src="./assets/typescript.png" alt="TypeScript" class="w-[32px] h-[32px] object-cover">
+                            <div class="text-[10px]">TypeScript</div>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                            <img src="./assets/javascript.png" alt="JavaScript" class="w-[32px] h-[32px] object-cover">
+                            <div class="text-[10px]">JavaScript</div>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                            <img src="./assets/react.png" alt="React" class="w-[32px] h-[32px] object-fit">
+                            <div class="text-[10px]">React</div>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                            <img src="./assets/nextjs.svg" alt="NextJS" class="w-[32px] h-[32px] object-cover">
+                            <div class="text-[10px]">NextJS</div>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                            <img src="./assets/node.png" alt="NodeJS" class="w-[32px] h-[32px] object-cover">
+                            <div class="text-[10px]">NodeJS</div>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                            <img src="./assets/docker.png" alt="Docker" class="w-[32px] h-[32px] object-contain">
+                            <div class="text-[10px]">Docker</div>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                            <img src="./assets/jest.svg" alt="Jest" class="w-[32px] h-[32px] object-contain">
+                            <div class="text-[10px]">Jest</div>
+                        </div>
+                    </div>
+                <div class="text-[12px] sm:text-[16px]">
+                    Built internal tooling for easily configuring ad slot configurations for Walmart's search function that merges organic and sponsored products together, allowing teams to more easily run AB tests with different ad slot configurations on Walmart's search.
+                    <br>
+                    <br>
+                    Extended Walmart's cart functionality to be able to take advantage of Chrome's built in Gemini AI model to infer an event from the customer based on the customer journey data in order to suggest a new item. This term was used to make highly accurate sponsored product ad calls, improving ad relevancy.
+                    <br>
+                </div>   
+            </div>
+
+            <div class="flex flex-col items-center justify-center w-full md:flex-1">
+                <div class="flex flex-col items-center justify-center gap-[16px] h-[250px] md:h-[350px]">
+                    <div class="max-h-[80%] w-full object-contain flex items-center justify-center">
+                        <img src="./walmart.svg" alt="Walmart" class="h-full object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="flex flex-col gap-[32px] md:flex-row md:items-start md:justify-center">
 
