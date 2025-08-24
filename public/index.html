@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alan Chavarin</title>
     <link rel="icon" type="image/x-icon" href="./assets/a.png">
-    <link href="./dist/output.css" rel="stylesheet">
+    <link href="dist/output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
@@ -28,12 +28,35 @@
     <ul class="flex flex-row justify-center items-center gap-[6px] h-[48px] text-[18px] md:text-[24px] md:gap-[32px] md:h-[64px] px-[16px]">
         <li><a onclick="document.querySelector('#home').scrollIntoView({behavior: 'smooth'})" class="transition-all duration-300 hover:bg-gradient-to-r hover:from-gradientRed hover:to-gradientBlue hover:text-white px-[12px] md:px-[16px] rounded-full inline-block hover:font-semibold hover:small-box-shadow">Home</a></li>
         <li><a href="https://www.linkedin.com/in/alanchavarin/" target="_blank" class="transition-all duration-300 hover:bg-gradient-to-r hover:from-gradientRed hover:to-gradientBlue hover:text-white px-[12px] md:px-[16px] rounded-full inline-block hover:font-semibold hover:small-box-shadow">LinkedIn</a></li>
-        <li><a href="./AlanChavarin_Resume_SoftwareEngineer_v7.docx" download class="transition-all duration-300 hover:bg-gradient-to-r hover:from-gradientRed hover:to-gradientBlue hover:text-white px-[12px] md:px-[16px] rounded-full inline-block hover:font-semibold hover:small-box-shadow">Resume</a></li>
+        <li><a onclick="document.getElementById('resumePopup').style.display='flex'" class="transition-all duration-300 hover:bg-gradient-to-r hover:from-gradientRed hover:to-gradientBlue hover:text-white px-[12px] md:px-[16px] rounded-full inline-block hover:font-semibold hover:small-box-shadow">Resume</a></li>
         <li><a onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})" class="transition-all duration-300 hover:bg-gradient-to-r hover:from-gradientRed hover:to-gradientBlue hover:text-white px-[12px] md:px-[16px] rounded-full inline-block hover:font-semibold hover:small-box-shadow">Contact</a></li>
     </ul>
 </nav>
     
 <div class="flex flex-col gap-[24px] items-center max-w-[1100px] pt-[128px]" id="home">
+
+    <div id="resumePopup" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 600; display: none; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.5);" onclick="if(event.target === this) document.getElementById('resumePopup').style.display='none';">
+        <div style="background: #fff; margin-left: 1rem; margin-right: 1rem; box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); display: flex; flex-direction: column; gap: 8px; align-items: center; position: relative; padding: 16px; border-radius: 8px; min-height: 250px; min-width: 300px;">
+            <button onclick="document.getElementById('resumePopup').style.display='none'" style="color: #6b7280; font-size: 1.50rem; font-weight: bold; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 9999px; position: absolute; top: 16px; right: 16px; background: none; border: none; transition: background 0.2s, color 0.2s; cursor: pointer;"
+                onmouseover="this.style.background='#f3f4f6';this.style.color='#374151';"
+                onmouseout="this.style.background='none';this.style.color='#6b7280';">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 style="font-size: 1.5rem; font-weight: 600; text-align: center; width: 100%; margin-bottom: 16px; margin-top: 16px;">Download Resume</h3>
+            <div style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
+                <a href="./AlanChavarin_Resume_SoftwareEngineer_v7.docx" download
+                   class="bg-gradient-to-r from-gradientRed to-gradientBlue text-white py-[4px] px-[16px] rounded-full font-semibold w-full text-center no-underline flex items-center justify-center gap-[8px] small-box-shadow">
+                    <i class="fas fa-file-word"></i>
+                    Word Document
+                </a>
+                <button onclick="window.open('./AlanChavarin_Resume_SoftwareEngineer_v7.pdf', '_blank')"
+                        class="bg-gradient-to-r from-gradientRed to-gradientBlue text-white py-[4px] px-[16px] rounded-full font-semibold w-full small-box-shadow border-none cursor-pointer">
+                    <i class="fas fa-file-pdf"></i>
+                    PDF Doc
+                </button>
+            </div>
+        </div>
+    </div>
     
     <div class="flex flex-col gap-[24px] px-[32px]">
         <div class="flex flex-col">
