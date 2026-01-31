@@ -20,6 +20,20 @@
                 text-align: center !important;
             }
         }
+        /* FabFoundry carousel: short descriptions only on mobile, long only on sm+ */
+        .fabfoundry-mobile-desc,
+        .fabfoundry-desktop-desc {
+            text-align: center;
+            width: 100%;
+        }
+        @media (max-width: 639px) {
+            .fabfoundry-mobile-desc { display: block !important; }
+            .fabfoundry-desktop-desc { display: none !important; }
+        }
+        @media (min-width: 640px) {
+            .fabfoundry-mobile-desc { display: none !important; }
+            .fabfoundry-desktop-desc { display: block !important; }
+        }
     </style>
 </head>
 <body class="text-mainGray font-light flex flex-col gap-[24px] items-center relative">
@@ -226,50 +240,50 @@
             <div class="embla relative flex flex-col gap-[16px] overflow-hidden w-full md:flex-1 min-w-0">
                 <div class="embla__container flex flex-row h-[250px] md:h-[350px]">
                     <div class="embla__slide flex-[0_0_100%] flex flex-col items-center justify-center gap-[8px] h-full min-w-0">
-                        <div class="sm:hidden text-[10px] text-center">Order management</div>
-                        <div class="hidden sm:block text-[14px] text-center px-1 min-w-0 w-full break-words overflow-hidden">Order management & tracking page</div>
+                        <div class="fabfoundry-mobile-desc text-[10px] text-center w-full">Order management</div>
+                        <div class="fabfoundry-desktop-desc text-[14px] text-center px-1 min-w-0 w-full break-words overflow-hidden">Order management & tracking page</div>
                         <div class="max-h-[80%] w-full object-contain flex items-center justify-center">
                             <img src="./fabfoundryimages/fabfoundry2.png" alt="FabFoundry" class="small-box-shadow h-full object-contain">
                         </div>
                     </div>
                     <div class="embla__slide flex-[0_0_100%] flex flex-col items-center justify-center gap-[8px] h-full min-w-0">
-                        <div class="sm:hidden text-[10px] text-center">Voucher management</div>
-                        <div class="hidden sm:block text-[14px] text-center min-w-0 w-full break-words overflow-hidden">Voucher management page</div>
+                        <div class="fabfoundry-mobile-desc text-[10px] text-center w-full">Voucher management</div>
+                        <div class="fabfoundry-desktop-desc text-[14px] text-center min-w-0 w-full break-words overflow-hidden">Voucher management page</div>
                         <div class="max-h-[80%] w-full object-contain flex items-center justify-center">
                             <img src="./fabfoundryimages/fabfoundry1.png" alt="FabFoundry" class="small-box-shadow h-full object-contain">
                         </div>
                     </div>
                     <div class="embla__slide flex-[0_0_100%] flex flex-col items-center justify-center gap-[8px] h-full min-w-0">
-                        <div class="sm:hidden text-[10px] text-center">Product–event linking</div>
-                        <div class="hidden sm:block text-[14px] text-center min-w-0 w-full break-words overflow-hidden">Shopify product to GEM event linking page</div>
+                        <div class="fabfoundry-mobile-desc text-[10px] text-center w-full">Product event linking</div>
+                        <div class="fabfoundry-desktop-desc text-[14px] text-center min-w-0 w-full break-words overflow-hidden">Shopify product to GEM event linking page</div>
                         <div class="max-h-[80%] w-full object-contain flex items-center justify-center">
                             <img src="./fabfoundryimages/fabfoundry3.png" alt="FabFoundry" class="small-box-shadow h-full object-contain">
                         </div>
                     </div>
                     <div class="embla__slide flex-[0_0_100%] flex flex-col items-center justify-center gap-[8px] h-full min-w-0">
-                        <div class="sm:hidden text-[10px] text-center">Collection management</div>
-                        <div class="hidden sm:block text-[14px] text-center min-w-0 w-full break-words overflow-hidden">Shopify collection management page</div>
+                        <div class="fabfoundry-mobile-desc text-[10px] text-center w-full">Collection management</div>
+                        <div class="fabfoundry-desktop-desc text-[14px] text-center min-w-0 w-full break-words overflow-hidden">Shopify collection management page</div>
                         <div class="max-h-[80%] w-full object-contain flex items-center justify-center">
                             <img src="./fabfoundryimages/fabfoundry4.png" alt="FabFoundry" class="small-box-shadow h-full object-contain">
                         </div>
                     </div>
                     <div class="embla__slide flex-[0_0_100%] flex flex-col items-center justify-center gap-[8px] h-full min-w-0">
-                        <div class="sm:hidden text-[10px] text-center">Customer vouchers</div>
-                        <div class="hidden sm:block text-[14px] text-center min-w-0 w-full break-words overflow-hidden">Customer's voucher management page</div>
+                        <div class="fabfoundry-mobile-desc text-[10px] text-center w-full">Customer vouchers</div>
+                        <div class="fabfoundry-desktop-desc text-[14px] text-center min-w-0 w-full break-words overflow-hidden">Customer's voucher management page</div>
                         <div class="max-h-[80%] w-full object-contain flex items-center justify-center">
                             <img src="./fabfoundryimages/fabfoundry5.png" alt="FabFoundry" class="small-box-shadow h-full object-contain">
                         </div>
                     </div>
                     <div class="embla__slide flex-[0_0_100%] flex flex-col items-center justify-center gap-[8px] h-full min-w-0">
-                        <div class="sm:hidden text-[10px] text-center">Checkout vouchers</div>
-                        <div class="hidden sm:block text-[14px] text-center min-w-0 w-full break-words overflow-hidden">Voucher usage in shopify checkout for customers</div>
+                        <div class="fabfoundry-mobile-desc text-[10px] text-center w-full">Checkout vouchers</div>
+                        <div class="fabfoundry-desktop-desc text-[14px] text-center min-w-0 w-full break-words overflow-hidden">Voucher usage in shopify checkout for customers</div>
                         <div class="max-h-[80%] w-full object-contain flex items-center justify-center">
                             <img src="./fabfoundryimages/fabfoundry6.jpg" alt="FabFoundry" class="small-box-shadow h-full object-contain">
                         </div>
                     </div>
                     <div class="embla__slide flex-[0_0_100%] flex flex-col items-center justify-center gap-[8px] h-full min-w-0">
-                        <div class="sm:hidden text-[10px] text-center">QR transfers</div>
-                        <div class="hidden sm:block text-[14px] text-center min-w-0 w-full break-words overflow-hidden">QR Code for voucher transfers between customers</div>
+                        <div class="fabfoundry-mobile-desc text-[10px] text-center w-full">QR transfers</div>
+                        <div class="fabfoundry-desktop-desc text-[14px] text-center min-w-0 w-full break-words overflow-hidden">QR Code for voucher transfers between customers</div>
                         <div class="max-h-[80%] w-full object-contain flex items-center justify-center">
                             <img src="./fabfoundryimages/fabfoundry7.png" alt="FabFoundry" class="small-box-shadow h-full object-contain">
                         </div>
