@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>QR Codes – Alan Chavarin</title>
     <link rel="icon" type="image/x-icon" href="./assets/a.png">
     <link href="dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body { min-height: 100vh; position: relative; }
+        html, body { margin: 0; padding: 0; position: relative; }
+        body {
+            min-height: 100vh;
+            min-height: 100dvh;
+            -webkit-tap-highlight-color: transparent;
+        }
         .qr-embla { overflow: hidden; }
         .qr-polygon { position: absolute; width: 180px; height: auto; pointer-events: none; z-index: 0; }
         .qr-polygon--tl { top: 0; left: 0; transform: rotate(180deg); }
@@ -19,23 +27,28 @@
         .qr-embla__dot { width: 10px; height: 10px; border-radius: 50%; border: none; padding: 0; background: #d1d5db; cursor: pointer; transition: all 0.2s; }
         .qr-embla__dot.is-selected { width: 14px; height: 14px; background: #374151; }
         .qr-close-btn { background: linear-gradient(to right, #FF0004, #2F00FF); color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,0.2); }
+        .qr-fullscreen-btn { position: fixed; bottom: max(16px, env(safe-area-inset-bottom)); left: max(16px, env(safe-area-inset-left)); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: linear-gradient(to right, #FF0004, #2F00FF); color: #fff; border: none; cursor: pointer; z-index: 9999; font-size: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .qr-label { background: linear-gradient(to right, #FF0004, #2F00FF); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 300; }
     </style>
 </head>
 <body class="min-h-screen w-full bg-white flex flex-col items-center justify-center p-4 text-mainGray font-light">
     <img src="./assets/Polygon.svg" alt="" class="qr-polygon qr-polygon--tl" aria-hidden="true" />
     <img src="./assets/Polygon.svg" alt="" class="qr-polygon qr-polygon--br" aria-hidden="true" />
-    <a href="./index.html" class="qr-close-btn" style="position: fixed; top: 16px; right: 16px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-size: 1.25rem; z-index: 9999; border: none;" aria-label="Close">
+    <a href="./index.html" class="qr-close-btn" style="position: fixed; top: max(16px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right)); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-size: 1.25rem; z-index: 9999; border: none;" aria-label="Close">
         <i class="fas fa-times"></i>
     </a>
+    <button type="button" class="qr-fullscreen-btn" id="qrFullscreenBtn" aria-label="Full screen">
+        <i class="fas fa-expand" id="qrFullscreenIcon"></i>
+    </button>
 
     <div class="qr-embla w-full max-w-[min(100vw,400px)] mt-12" id="qrCarousel" style="position: relative; z-index: 1;">
         <div class="qr-embla__container">
             <div class="qr-embla__slide">
-                <p class="text-center text-lg font-semibold mb-4">www.alanchavarin.dev</p>
+                <p class="qr-label text-center text-[24px] mb-4">www.alanchavarin.dev</p>
                 <img src="./assets/qrcode_www.alanchavarin.dev.png" alt="QR code for www.alanchavarin.dev" style="width: 100%; max-width: 280px; height: auto; object-fit: contain;" />
             </div>
             <div class="qr-embla__slide">
-                <p class="text-center text-lg font-semibold mb-4">www.linkedin.com/in/alanchavarin</p>
+                <p class="qr-label text-center text-[20px] mb-4">www.linkedin.com/in/alanchavarin</p>
                 <img src="./assets/qrcode_www.linkedin.com.png" alt="QR code for LinkedIn profile" style="width: 100%; max-width: 280px; height: auto; object-fit: contain;" />
             </div>
         </div>
@@ -69,6 +82,33 @@
             };
             embla.on('select', updateDots);
             updateDots();
+        })();
+
+        (function() {
+            var btn = document.getElementById('qrFullscreenBtn');
+            var icon = document.getElementById('qrFullscreenIcon');
+            if (!btn || !icon) return;
+            function requestFullscreen() {
+                var doc = document.documentElement;
+                if (doc.requestFullscreen) doc.requestFullscreen();
+                else if (doc.webkitRequestFullscreen) doc.webkitRequestFullscreen();
+                else if (doc.webkitEnterFullscreen) doc.webkitEnterFullscreen();
+            }
+            function exitFullscreen() {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+            }
+            function updateIcon() {
+                var isFull = !!(document.fullscreenElement || document.webkitFullscreenElement);
+                icon.className = isFull ? 'fas fa-compress' : 'fas fa-expand';
+                btn.setAttribute('aria-label', isFull ? 'Exit full screen' : 'Full screen');
+            }
+            btn.addEventListener('click', function() {
+                if (document.fullscreenElement || document.webkitFullscreenElement) exitFullscreen();
+                else requestFullscreen();
+            });
+            document.addEventListener('fullscreenchange', updateIcon);
+            document.addEventListener('webkitfullscreenchange', updateIcon);
         })();
     </script>
 </body>
