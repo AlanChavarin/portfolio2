@@ -18,22 +18,43 @@
             -webkit-tap-highlight-color: transparent;
         }
         .qr-embla { overflow: hidden; }
-        .qr-polygon { position: absolute; width: 180px; height: auto; pointer-events: none; z-index: 0; }
-        .qr-polygon--tl { top: 0; left: 0; transform: rotate(180deg); }
+        .qr-polygon {
+            position: absolute;
+            width: 180px;
+            height: 174px;
+            pointer-events: none;
+            z-index: 0;
+            background: linear-gradient(270deg, #2F00FF, #FF0004, #2F00FF);
+            background-size: 200% 100%;
+            animation: qr-gradient 5s linear infinite;
+            -webkit-mask-image: url('./assets/Polygon.svg');
+            mask-image: url('./assets/Polygon.svg');
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: 0 0;
+            mask-position: 0 0;
+        }
+        .qr-polygon--tl { top: 0; left: 0; transform: rotate(180deg); animation-direction: reverse; }
         .qr-polygon--br { bottom: 0; right: 0; }
+        @keyframes qr-gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: -200% 50%; }
+        }
         .qr-embla__container { display: flex; flex-direction: row; }
         .qr-embla__slide { flex: 0 0 100%; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         .qr-embla__dots { display: flex; gap: 24px; justify-content: center; align-items: center; margin-top: 16px; }
         .qr-embla__dot { width: 10px; height: 10px; border-radius: 50%; border: none; padding: 0; background: #d1d5db; cursor: pointer; transition: all 0.2s; }
         .qr-embla__dot.is-selected { width: 14px; height: 14px; background: #374151; }
-        .qr-close-btn { background: linear-gradient(to right, #FF0004, #2F00FF); color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,0.2); }
-        .qr-fullscreen-btn { position: fixed; bottom: max(16px, env(safe-area-inset-bottom)); left: max(16px, env(safe-area-inset-left)); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: linear-gradient(to right, #FF0004, #2F00FF); color: #fff; border: none; cursor: pointer; z-index: 9999; font-size: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
-        .qr-label { background: linear-gradient(to right, #FF0004, #2F00FF); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 300; }
+        .qr-close-btn { background: linear-gradient(270deg, #2F00FF, #FF0004, #2F00FF); background-size: 200% 100%; animation: qr-gradient 5s linear infinite; color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,0.2); }
+        .qr-fullscreen-btn { position: fixed; bottom: max(16px, env(safe-area-inset-bottom)); left: max(16px, env(safe-area-inset-left)); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: linear-gradient(270deg, #2F00FF, #FF0004, #2F00FF); background-size: 200% 100%; animation: qr-gradient 5s linear infinite; color: #fff; border: none; cursor: pointer; z-index: 9999; font-size: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .qr-label { background: linear-gradient(270deg, #2F00FF, #FF0004, #2F00FF); background-size: 200% 100%; animation: qr-gradient 5s linear infinite; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 300; }
     </style>
 </head>
 <body class="min-h-screen w-full bg-white flex flex-col items-center justify-center p-4 text-mainGray font-light">
-    <img src="./assets/Polygon.svg" alt="" class="qr-polygon qr-polygon--tl" aria-hidden="true" />
-    <img src="./assets/Polygon.svg" alt="" class="qr-polygon qr-polygon--br" aria-hidden="true" />
+    <div class="qr-polygon qr-polygon--tl" aria-hidden="true"></div>
+    <div class="qr-polygon qr-polygon--br" aria-hidden="true"></div>
     <a href="./index.html" class="qr-close-btn" style="position: fixed; top: max(16px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right)); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-size: 1.25rem; z-index: 9999; border: none;" aria-label="Close">
         <i class="fas fa-times"></i>
     </a>
