@@ -3,19 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code – Alan Chavarin</title>
+    <title>QR Codes – Alan Chavarin</title>
     <link rel="icon" type="image/x-icon" href="./assets/a.png">
     <link href="dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body { min-height: 100vh; }
+        .qr-embla { overflow: hidden; }
+        .qr-embla__container { display: flex; flex-direction: row; }
+        .qr-embla__slide { flex: 0 0 100%; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .qr-embla__dots { display: flex; gap: 24px; justify-content: center; align-items: center; margin-top: 16px; }
+        .qr-embla__dot { width: 10px; height: 10px; border-radius: 50%; border: none; padding: 0; background: #d1d5db; cursor: pointer; transition: all 0.2s; }
+        .qr-embla__dot.is-selected { width: 14px; height: 14px; background: #374151; }
     </style>
 </head>
 <body class="min-h-screen w-full bg-white flex flex-col items-center justify-center p-4 text-mainGray font-light">
     <a href="./index.html" style="position: fixed; top: 16px; right: 16px; width: 56px; height: 56px; background: #e5e7eb; color: #374151; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-size: 1.75rem; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.15);" aria-label="Close" onmouseover="this.style.background='#d1d5db'" onmouseout="this.style.background='#e5e7eb'">
         <i class="fas fa-times"></i>
     </a>
-    <p class="text-center text-lg font-semibold mb-4 mt-12">www.alanchavarin.dev</p>
-    <img src="./assets/qrcode_www.alanchavarin.dev.png" alt="QR code for www.alanchavarin.dev" class="w-full h-auto object-contain" style="width: auto;" />
+
+    <div class="qr-embla w-full max-w-[min(100vw,400px)] mt-12" id="qrCarousel">
+        <div class="qr-embla__container">
+            <div class="qr-embla__slide">
+                <p class="text-center text-lg font-semibold mb-4">www.alanchavarin.dev</p>
+                <img src="./assets/qrcode_www.alanchavarin.dev.png" alt="QR code for www.alanchavarin.dev" style="width: 100%; max-width: 280px; height: auto; object-fit: contain;" />
+            </div>
+            <div class="qr-embla__slide">
+                <p class="text-center text-lg font-semibold mb-4">www.linkedin.com/in/alanchavarin</p>
+                <img src="./assets/qrcode_www.linkedin.com.png" alt="QR code for LinkedIn profile" style="width: 100%; max-width: 280px; height: auto; object-fit: contain;" />
+            </div>
+        </div>
+        <div class="qr-embla__dots" id="qrDots"></div>
+    </div>
+
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+    <script>
+        (function() {
+            const carouselNode = document.getElementById('qrCarousel');
+            const dotsNode = document.getElementById('qrDots');
+            if (!carouselNode || !dotsNode) return;
+
+            const embla = EmblaCarousel(carouselNode, { loop: true, containScroll: 'trimSnaps' });
+            const slides = carouselNode.querySelectorAll('.qr-embla__slide');
+
+            slides.forEach(function(_, i) {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'qr-embla__dot';
+                dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                dot.addEventListener('click', function() { embla.scrollTo(i); });
+                dotsNode.appendChild(dot);
+            });
+
+            const updateDots = function() {
+                const idx = embla.selectedScrollSnap();
+                dotsNode.querySelectorAll('.qr-embla__dot').forEach(function(d, i) {
+                    d.classList.toggle('is-selected', i === idx);
+                });
+            };
+            embla.on('select', updateDots);
+            updateDots();
+        })();
+    </script>
 </body>
 </html>
