@@ -8,21 +8,27 @@
     <link href="dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body { min-height: 100vh; }
+        body { min-height: 100vh; position: relative; }
         .qr-embla { overflow: hidden; }
+        .qr-polygon { position: absolute; width: 180px; height: auto; pointer-events: none; z-index: 0; }
+        .qr-polygon--tl { top: 0; left: 0; transform: rotate(180deg); }
+        .qr-polygon--br { bottom: 0; right: 0; }
         .qr-embla__container { display: flex; flex-direction: row; }
         .qr-embla__slide { flex: 0 0 100%; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         .qr-embla__dots { display: flex; gap: 24px; justify-content: center; align-items: center; margin-top: 16px; }
         .qr-embla__dot { width: 10px; height: 10px; border-radius: 50%; border: none; padding: 0; background: #d1d5db; cursor: pointer; transition: all 0.2s; }
         .qr-embla__dot.is-selected { width: 14px; height: 14px; background: #374151; }
+        .qr-close-btn { background: linear-gradient(to right, #FF0004, #2F00FF); color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body class="min-h-screen w-full bg-white flex flex-col items-center justify-center p-4 text-mainGray font-light">
-    <a href="./index.html" style="position: fixed; top: 16px; right: 16px; width: 56px; height: 56px; background: #e5e7eb; color: #374151; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-size: 1.75rem; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.15);" aria-label="Close" onmouseover="this.style.background='#d1d5db'" onmouseout="this.style.background='#e5e7eb'">
+    <img src="./assets/Polygon.svg" alt="" class="qr-polygon qr-polygon--tl" aria-hidden="true" />
+    <img src="./assets/Polygon.svg" alt="" class="qr-polygon qr-polygon--br" aria-hidden="true" />
+    <a href="./index.html" class="qr-close-btn" style="position: fixed; top: 16px; right: 16px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-size: 1.25rem; z-index: 9999; border: none;" aria-label="Close">
         <i class="fas fa-times"></i>
     </a>
 
-    <div class="qr-embla w-full max-w-[min(100vw,400px)] mt-12" id="qrCarousel">
+    <div class="qr-embla w-full max-w-[min(100vw,400px)] mt-12" id="qrCarousel" style="position: relative; z-index: 1;">
         <div class="qr-embla__container">
             <div class="qr-embla__slide">
                 <p class="text-center text-lg font-semibold mb-4">www.alanchavarin.dev</p>
